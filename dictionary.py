@@ -19,7 +19,6 @@ def dict_filler(sheet_name):
         keys_list.append(key)
         items_list.append(sheet[i][4].value)
         this_dict[key] = items_list[keys_list.index(key)] + f', актуальность: {sheet[i][2].value}'
-
     big_dict.update(this_dict)
     return this_dict
 
