@@ -11,7 +11,7 @@ def dict_filler(sheet_name):
     items_list = []
     this_dict = {}
     for i in range(2, sheet.max_row):
-        temp = list(sheet[i][3].value.lower())
+        temp = list(sheet[i][3].value.lower()) # оказывается, единой формы ввода данных в Переводчик нет
         for n in temp:
             if n == '\"':
                 temp.remove(n)

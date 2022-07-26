@@ -29,11 +29,7 @@ class Input():
         else:
             return 'Простите, я только учусь! Но на всякий случай, попробуем ввести в именительном падеже?'
 
-# test_input = Input('факультет "Институт комплексного военного образования"')
-# print(test_input.text)
-# test_input.process_cat()
-# print(test_input.text)
-# print(test_input.translate())
+
 
 
 
