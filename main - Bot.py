@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, types, executor
 
-import input
+import input, messages
 
 bot = Bot('5425262237:AAGOWteGA7ZHY4QprD0_SHYm9lzrtfld7is')
 dp = Dispatcher(bot)
@@ -8,23 +8,12 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def greetings(message: types.Message):
-    await message.answer('Привет! Я - Chatterbird, отличаюсь умом и сообразительностью. '
-                         'Если введете комманду /about, можете '
-                         'немного про меня почитать. А можем сразу начать работу, просто введите термин:')
+    await message.answer(messages.welcome)
 
 
 @dp.message_handler(commands=['about'])
 async def about(message: types.Message):
-    await message.answer('Я рожден из БОЛИ, причиненной Переводчиком ИСУ... Погодите, что-то слишком откровенно. '
-                         'И совершенно не соответствует моей доброй природе.\n\n'
-                         'Хм... \n\n'
-                         'Я задуман как альтернатива поиску по Переводчику ИСУ, который:\n\n'
-                         '1. чувствителен к регистру\n'
-                         '2. не может искать сразу по всем категориям\n'
-                         '3. не выдает перевод сразу же, а требует лишних кликов\n\n'
-                         'А еще я пытаюсь работать со склонениями, но пока это не всегда получается - мне нужен корм! '
-                         'Например, доступ к данным Переводчика.\n\n'
-                         'Давайте начнем?')
+    await message.answer(messages.about)
 
 
 @dp.message_handler()
