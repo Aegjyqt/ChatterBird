@@ -1,7 +1,8 @@
-import dictionary
 import openpyxl
 
-wb = openpyxl.load_workbook('.Lists_for_T.xlsx', read_only=True)
+import dictionary
+
+wb = openpyxl.load_workbook('lists_for_translator.xlsx', read_only=True)
 all_categories = []
 
 
@@ -17,6 +18,6 @@ class Category:
         for row in range(2, 8):
             self.cat_ids.append(sheet[row][1].value)
 
+
 cat_dpts = Category('управление')
 cat_fclts = Category('факультет')
-

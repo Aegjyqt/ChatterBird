@@ -5,13 +5,15 @@ import input
 bot = Bot('5425262237:AAGOWteGA7ZHY4QprD0_SHYm9lzrtfld7is')
 dp = Dispatcher(bot)
 
-@dp.message_handler(commands = ['start'])
+
+@dp.message_handler(commands=['start'])
 async def greetings(message: types.Message):
     await message.answer('Привет! Я - Chatterbird, отличаюсь умом и сообразительностью. '
                          'Если введете комманду /about, можете '
                          'немного про меня почитать. А можем сразу начать работу, просто введите термин:')
 
-@dp.message_handler(commands = ['about'])
+
+@dp.message_handler(commands=['about'])
 async def about(message: types.Message):
     await message.answer('Я рожден из БОЛИ, причиненной Переводчиком ИСУ... Погодите, что-то слишком откровенно. '
                          'И совершенно не соответствует моей доброй природе.\n\n'
@@ -24,6 +26,7 @@ async def about(message: types.Message):
                          'Например, доступ к данным Переводчика.\n\n'
                          'Давайте начнем?')
 
+
 @dp.message_handler()
 async def commence(message: types.Message):
     string = message.text
@@ -35,5 +38,6 @@ async def commence(message: types.Message):
         await message.answer('Знаю!')
     await message.answer(output)
     await message.answer('(данных по актуальности нет без доступа к данным Переводчика. Увы!)')
+
 
 executor.start_polling(dp)
