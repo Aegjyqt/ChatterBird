@@ -1,8 +1,12 @@
 from aiogram import Bot, Dispatcher, types, executor
 
 import input, messages
+from dotenv import load_dotenv
+import os
 
-bot = Bot('5425262237:AAGOWteGA7ZHY4QprD0_SHYm9lzrtfld7is')
+load_dotenv()
+
+bot = Bot(os.getenv('TOKEN'))
 dp = Dispatcher(bot)
 
 
