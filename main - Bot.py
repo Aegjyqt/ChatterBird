@@ -24,7 +24,7 @@ async def about(message: types.Message):
 async def commence(message: types.Message):
     string = message.text
     temp = input.Input(string)
-    output = temp.translate()
+    output = temp.process_translate()
     if output == 'Простите, я только учусь! Но на всякий случай, попробуем ввести в именительном падеже?':
         await message.answer('Не знаю!')
     else:

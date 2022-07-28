@@ -3,19 +3,29 @@ import dictionary
 
 
 class Input():
+    """ Governs everything that has to do with user's input (string for translation):
+
+    process_simplify: changes text format to lowercase, gets rid of quotation marks
+
+    process_declension: changes category-specific identifier words to the nominative case
+
+    process_translate: translates a string processed with the two of the above
+
+    """
+
     def __init__(self, text):
         self.text = text
-        self.process()
-        self.process_cat()
+        self.process_simplify()
+        self.process_declension()
 
-    def process(self):
+    def process_simplify(self):
         temp = list(self.text.lower())
         for i in temp:
             if i == '\"':
                 temp.remove(i)
         self.text = ''.join(temp)
 
-    def process_cat(self):
+    def process_declension(self):
         elements = self.text.split(' ')
         for category in categories.all_categories:
             temp_list = category.cat_ids
@@ -24,7 +34,7 @@ class Input():
                     elements[i] = category.name
         self.text = ' '.join(elements)
 
-    def translate(self):
+    def process_translate(self):
         if self.text in dictionary.big_dict:
             return dictionary.big_dict[self.text]
         else:

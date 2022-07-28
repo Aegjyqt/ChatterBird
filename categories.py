@@ -7,10 +7,16 @@ all_categories = []
 
 
 class Category:
+    """ Governs specific term categories
+
+    get_ids: gets declensions of the category-specific identifier word from category-specific sheet in a table
+
+    """
+
     def __init__(self, name):
         self.name = name
         self.cat_ids = []
-        self.cat_dict = dictionary.dict_filler(self.name)
+        self.cat_dict = dictionary.get_data(self.name)
         self.get_ids(wb[self.name])
         all_categories.append(self)
 
