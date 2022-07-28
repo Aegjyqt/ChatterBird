@@ -5,7 +5,7 @@ wb = openpyxl.load_workbook('lists_for_translator.xlsx', read_only=True)
 big_dict = {}
 
 
-def get_data(sheet_name):
+def get_data(sheet_name): # а какой тип данных у sheet_name? с т.з. Type Hints? + см. ниже, return
     """ Takes data from a specific sheet in a table, and
      adds it to category-specific dictionary and common dict
 
@@ -26,4 +26,4 @@ def get_data(sheet_name):
         this_dict[key] = items_list[keys_list.index(key)] + f', актуальность: {sheet[i][2].value}'
     big_dict.update(this_dict)
 
-    return this_dict
+    return this_dict # и снова -- какой это тип данных?

@@ -5,15 +5,15 @@ import dictionary
 class Input():
     """ Governs everything that has to do with user's input (string for translation):
 
-    process_simplify: changes text format to lowercase, gets rid of quotation marks
+    process_simplify: changes text format to lowercase, gets rid of quotation marks (done at init)
 
-    process_declension: changes category-specific identifier words to the nominative case
+    process_declension: changes category-specific identifier words to the nominative case (done at init)
 
     process_translate: translates a string processed with the two of the above
 
     """
 
-    def __init__(self, text):
+    def __init__(self, text: str):
         self.text = text
         self.process_simplify()
         self.process_declension()
@@ -34,7 +34,7 @@ class Input():
                     elements[i] = category.name
         self.text = ' '.join(elements)
 
-    def process_translate(self):
+    def process_translate(self) -> str:
         if self.text in dictionary.big_dict:
             return dictionary.big_dict[self.text]
         else:

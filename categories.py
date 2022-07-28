@@ -13,14 +13,14 @@ class Category:
 
     """
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
         self.cat_ids = []
         self.cat_dict = dictionary.get_data(self.name)
         self.get_ids(wb[self.name])
         all_categories.append(self)
 
-    def get_ids(self, sheet):
+    def get_ids(self, sheet): # а какой тип данных у sheet? с т.з. Type Hints?
         for row in range(2, 8):
             self.cat_ids.append(sheet[row][1].value)
 
