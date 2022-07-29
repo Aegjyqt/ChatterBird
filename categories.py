@@ -3,8 +3,8 @@ import openpyxl
 import dictionary
 
 wb = openpyxl.load_workbook('lists_for_translator.xlsx', read_only=True)
-all_categories = []
 
+all_categories = [] # а куда можно поместить эту переменную, если не делать глобальной?
 
 class Category:
     """ Governs specific term categories
@@ -16,7 +16,7 @@ class Category:
     def __init__(self, name: str):
         self.name = name
         self.cat_ids = []
-        self.cat_dict = dictionary.get_data(self.name)
+        self.cat_dict = dictionary.get_sheet_data(self.name)
         self.get_ids(wb[self.name])
         all_categories.append(self)
 

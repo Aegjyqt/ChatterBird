@@ -5,7 +5,7 @@ wb = openpyxl.load_workbook('lists_for_translator.xlsx', read_only=True)
 big_dict = {}
 
 
-def get_data(sheet_name): # а какой тип данных у sheet_name? с т.з. Type Hints? + см. ниже, return
+def get_sheet_data(sheet_name): # а какой тип данных у sheet_name? с т.з. Type Hints? + см. ниже, return
     """ Takes data from a specific sheet in a table, and
      adds it to category-specific dictionary and common dict
 
